@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://wwww.thymeleaf.org">
+
+<head>
+
+
+   <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+	<title>Employee Directory</title>
+</head>
+
+<body>
+
+<div class="container">
+
+	<h3>Employee Directory</h3>
+	<hr>
+	
+	<p class="h4 mb-4">Save Employee</p>
+	
+	<!-- call getter methods to pre-populate form fieldws initially -->
+	
+	<form action="#" th:action="@{/employee/save}"
+					th:object="${employee}" method="POST">
+					
+					<!-- Addd hidden form field to handle update 
+					binds to the model attribute
+					tells your map which employee to update-->
+					<input type="hidden" th:field="{/id}" />
+					
+					
+										<input type="text" th:field="*{firstName}"
+							class="form-control mb-4 col-4" placeholder="First name">
+							
+							<input type="text" th:field="*{lastName}"
+							class="form-control mb-4 col-4" placeholder="Last name">
+							
+							<input type="text" th:field="*{email}"
+							class="form-control mb-4 col-4" placeholder="email">
+						
+						<button type="submit" class="btn btn-info col-2">Save</button>	
+					</form>
+					
+					<hr>
+					<a th:href="@{/employees/list}">Back to Employees List</a>
+					
+	
+</div>
+
+</body>
+
+
+</html>
